@@ -615,3 +615,33 @@ h1 {
   }
 
   }
+#typing-text {
+  color: #00ffff;
+
+  font-weight: 700;
+
+  text-shadow:
+    0 0 10px rgba(0,255,255,0.8),
+    0 0 30px rgba(0,255,255,0.4);
+}
+
+#typing-text::after {
+  content: "|";
+
+  margin-left: 5px;
+
+  animation:
+    cursorBlink 0.7s infinite;
+}
+
+@keyframes cursorBlink {
+
+  0%, 50% {
+    opacity: 1;
+  }
+
+  51%, 100% {
+    opacity: 0;
+  }
+
+  }
