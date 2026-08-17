@@ -161,3 +161,36 @@ function animate() {
 }
 
 animate();
+const heroCard = document.querySelector(".hero-content");
+
+if (heroCard) {
+
+  document.addEventListener("touchmove", (event) => {
+
+    const touch = event.touches[0];
+
+    const x = touch.clientX;
+    const y = touch.clientY;
+
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+
+    const rotateY = (x - centerX) / 35;
+    const rotateX = -(y - centerY) / 35;
+
+    heroCard.style.transform =
+      `perspective(1200px)
+       rotateX(${rotateX}deg)
+       rotateY(${rotateY}deg)
+       translateY(-5px)`;
+
+  });
+
+  document.addEventListener("touchend", () => {
+
+    heroCard.style.transform =
+      "perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0)";
+
+  });
+
+}
