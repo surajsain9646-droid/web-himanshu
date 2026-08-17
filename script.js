@@ -194,3 +194,71 @@ if (heroCard) {
   });
 
 }
+// =========================
+// TYPING ANIMATION
+// =========================
+
+const typingElement =
+  document.getElementById("typing-text");
+
+const typingWords = [
+  "Teacher",
+  "Student",
+  "Aspiring Web Developer",
+  "Learner",
+  "Creator"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typingEffect() {
+
+  if (!typingElement) return;
+
+  const currentWord =
+    typingWords[wordIndex];
+
+  if (!deleting) {
+
+    typingElement.textContent =
+      currentWord.substring(0, charIndex + 1);
+
+    charIndex++;
+
+    if (charIndex === currentWord.length) {
+
+      deleting = true;
+
+      setTimeout(typingEffect, 1400);
+
+      return;
+    }
+
+  } else {
+
+    typingElement.textContent =
+      currentWord.substring(0, charIndex - 1);
+
+    charIndex--;
+
+    if (charIndex === 0) {
+
+      deleting = false;
+
+      wordIndex =
+        (wordIndex + 1) %
+        typingWords.length;
+
+    }
+
+  }
+
+  setTimeout(
+    typingEffect,
+    deleting ? 50 : 100
+  );
+}
+
+typingEffect();
