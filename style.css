@@ -645,3 +645,29 @@ h1 {
   }
 
   }
+/* =========================
+   3D SCROLL REVEAL
+========================= */
+
+.reveal {
+  opacity: 0;
+  transform:
+    perspective(1000px)
+    translateY(80px)
+    rotateX(12deg)
+    scale(0.94);
+
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.show {
+  opacity: 1;
+
+  transform:
+    perspective(1000px)
+    translateY(0)
+    rotateX(0deg)
+    scale(1);
+}
