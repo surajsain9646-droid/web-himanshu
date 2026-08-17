@@ -241,3 +241,84 @@ h1 {
   }
 
 }
+/* PREMIUM HERO GLASS EFFECT */
+
+.hero-content {
+  position: relative;
+  padding: 45px 30px;
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 25px 80px rgba(0,0,0,0.6),
+    inset 0 0 40px rgba(255,255,255,0.02);
+
+  transform-style: preserve-3d;
+
+  animation: cardFloat 6s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+
+  0%, 100% {
+    transform:
+      perspective(1200px)
+      rotateX(0deg)
+      rotateY(0deg)
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      perspective(1200px)
+      rotateX(2deg)
+      rotateY(-2deg)
+      translateY(-8px);
+  }
+
+}
+
+/* Glass shine */
+
+.hero-content::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,0.08),
+      transparent
+    );
+
+  transform: translateX(-100%);
+
+  animation: glassShine 6s infinite;
+
+  pointer-events: none;
+
+}
+
+@keyframes glassShine {
+
+  0% {
+    transform: translateX(-100%);
+  }
+
+  45%, 100% {
+    transform: translateX(100%);
+  }
+
+}
