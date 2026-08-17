@@ -191,3 +191,53 @@ h1 {
     width: 100%;
   }
   }
+/* 3D WH LOGO */
+
+.logo {
+  position: relative;
+  display: inline-block;
+  font-size: clamp(60px, 15vw, 120px);
+  font-weight: 900;
+  letter-spacing: 10px;
+
+  transform-style: preserve-3d;
+
+  text-shadow:
+    0 1px 0 #aaa,
+    0 2px 0 #888,
+    0 3px 0 #666,
+    0 4px 0 #444,
+    0 0 20px rgba(0,255,255,0.7),
+    0 0 60px rgba(120,0,255,0.5);
+
+  animation:
+    logo3D 4s ease-in-out infinite;
+}
+
+@keyframes logo3D {
+
+  0% {
+    transform:
+      perspective(800px)
+      rotateX(0deg)
+      rotateY(-10deg)
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      perspective(800px)
+      rotateX(12deg)
+      rotateY(10deg)
+      translateY(-18px);
+  }
+
+  100% {
+    transform:
+      perspective(800px)
+      rotateX(0deg)
+      rotateY(-10deg)
+      translateY(0);
+  }
+
+}
